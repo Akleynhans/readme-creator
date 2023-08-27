@@ -51,44 +51,6 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
-// function writeToFile({title, description, installation, usage, license, contributing, test, github, email}) { 
-//     `#${title}
-
-//     ##Table of Contents
-
-//     Descriptions
-//     Installations
-//     Usage
-//     License
-//     Contributing
-//     Tests
-//     Questions
-    
-//     ##Description
-//     ${description}
-
-//     ## Installation
-//     ${installation}
-
-//     ## Usage
-//     ${usage}
-
-//     ## Licenses
-//     ${license}
-
-//     ## Contributing
-//     ${contributing}
-
-//     ## Tests
-//     ${test}
-
-//     ## Questions
-//     ${github}
-//     ${email}
-    
-//     `
-// }
 
 const writeToFile = ({ title, description, installation, usage, license, contributing, test, github, email }) =>
 `#${title}
