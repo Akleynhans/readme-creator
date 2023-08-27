@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-Descriptions<br>
-Installations<br>
-Usage<br>
-License<br>
-Contributing<br>
-Tests<br>
-Questions
+[Descriptions](#description)<br>
+[Installations](#installation)<br>
+[Usage](#usage)<br>
+[License](#licenses)<br>
+[Contributing](#contributing)<br>
+[Tests](#tests)<br>
+[Questions](#questions)
 
 ## Description
 g
