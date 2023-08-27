@@ -45,14 +45,16 @@ const questions = [
         message: 'Enter email:',
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'license',
         message: 'Select license:',
+        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'Boost Software License'],
+
+        
     },
 ];
 
-
-const writeToFile = ({ title, description, installation, usage, license, contributing, test, github, email }) =>
+const writeToFile = ({ title, description, installation, usage, license, contributing, test, github, email, badge }) =>
 `#${title}
 
 ## Table of Contents
@@ -76,6 +78,7 @@ ${usage}
 
 ## Licenses
 ${license}
+${badge}
 
 ## Contributing
 ${contributing}
@@ -89,12 +92,27 @@ Email: ${email}
 
 `;
 
+// select badge
+function pickBadge(license) {
+    
+    if (license === 'Apache License 2.0') {
+        var badge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+    };
+    writeToFile(badge);
+    
+
+}
+
 // TODO: Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
         .then((answers) => {
-            const readmeContent = writeToFile(answers);
+            // if (license === 'Apache License 2.0') {
+            //     var badge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+            // };
+            pickBadge(license);
+            const readmeContent = writeToFile(answers, badge);
 
             fs.writeFile('README.md', readmeContent, (err) =>
                 err ? console.log(err) : console.log('Successfully created README.md!')
@@ -102,7 +120,7 @@ function init() {
         });
 
 
-}
+};
 
 // Function call to initialize app
 init();
