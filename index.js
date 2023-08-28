@@ -55,6 +55,8 @@ const questions = [
 ];
 
 const writeToFile = ({ title, description, installation, usage, license, contributing, test, github, email, badge }) =>
+
+
 `#${title}
 
 ## Table of Contents
@@ -93,12 +95,23 @@ Email: ${email}
 `;
 
 // select badge
-function pickBadge(license) {
+function pickBadge(answers) {
     
-    if (license === 'Apache License 2.0') {
+    
+    if (answers.license == 'Apache License 2.0') {
         var badge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+        
+        answers.badge = badge;
+        
     };
-    writeToFile(badge);
+    
+    console.log(answers);
+    const readmeContent = writeToFile(answers);
+
+    fs.writeFile('README.md', readmeContent, (err) =>
+        err ? console.log(err) : console.log('Successfully created README.md!')
+    );
+
     
 
 }
@@ -108,15 +121,9 @@ function init() {
     inquirer
         .prompt(questions)
         .then((answers) => {
-            // if (license === 'Apache License 2.0') {
-            //     var badge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
-            // };
-            pickBadge(license);
-            const readmeContent = writeToFile(answers, badge);
 
-            fs.writeFile('README.md', readmeContent, (err) =>
-                err ? console.log(err) : console.log('Successfully created README.md!')
-            );
+            pickBadge(answers);
+
         });
 
 
