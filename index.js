@@ -48,7 +48,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Select license:',
-        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'Boost Software License'],
+        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'Boost Software License', 'Eclipse Public License', 'Mozilla Public License', 'None'],
 
         
     },
@@ -58,16 +58,17 @@ const writeToFile = ({ title, description, installation, usage, license, contrib
 
 
 `#${title}
+${badge}
 
 ## Table of Contents
 
-Descriptions<br>
-Installations<br>
-Usage<br>
-License<br>
-Contributing<br>
-Tests<br>
-Questions
+[Descriptions](#description)<br>
+[Installations](#installation)<br>
+[Usage](#usage)<br>
+[License](#licenses)<br>
+[Contributing](#contributing)<br>
+[Tests](#tests)<br>
+[Questions](#questions)
 
 ## Description
 ${description}
@@ -80,7 +81,6 @@ ${usage}
 
 ## Licenses
 ${license}
-${badge}
 
 ## Contributing
 ${contributing}
@@ -89,8 +89,8 @@ ${contributing}
 ${test}
 
 ## Questions
-Github Username: ${github}
-Email: ${email}
+Github Link: [${github}](https://github.com/${github})<br>
+For any further questions Email the creator at: ${email}
 
 `;
 
@@ -100,12 +100,12 @@ function pickBadge(answers) {
     
     if (answers.license == 'Apache License 2.0') {
         var badge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
-        
-        answers.badge = badge;
-        
-    };
+    } else if (answers.license == '')
+        var badge =''
+    }
+    ;
     
-    console.log(answers);
+    answers.badge = badge;
     const readmeContent = writeToFile(answers);
 
     fs.writeFile('README.md', readmeContent, (err) =>
