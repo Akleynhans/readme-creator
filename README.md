@@ -1,35 +1,19 @@
-#ads
-
-## Table of Contents
-
-[Descriptions](#description)<br>
-[Installations](#installation)<br>
-[Usage](#usage)<br>
-[License](#license)<br>
-[Contributing](#contributing)<br>
-[Tests](#tests)<br>
-[Questions](#questions)
+# Readme-Creator
 
 ## Description
-ads
+
+This code allows the user to enter inputs into the terminal, then from those inputs creates a fully populated readme.md for your project
 
 ## Installation
-ads
+
+N/A
 
 ## Usage
-asd
 
-## Licenses
-Apache License 2.0
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[link to tutorial video](./assets/Screen%20Recording%202023-08-31%20at%202.53.45%20PM.mov)
 
-## Contributing
-ads
 
-## Tests
-das
 
-## Questions
-Github Username: [akleynhans](https://github.com/akleynhans)
-For any further questions Email the creator at: asa
+## Credits
 
+[link to create markdown table of contents](https://www.setcorrect.com/portfolio/work11/)<br>
